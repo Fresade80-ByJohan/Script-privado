@@ -874,7 +874,7 @@ autoEquipToolsFolder:AddSwitch("Fast Tools", function(Value)
 end)
 
 
-local estadisticas = window:AddTab("Stats Advanced")
+local estadisticas = window:AddTab("Stats")
 
 local SelectPlayerName = ""
 
