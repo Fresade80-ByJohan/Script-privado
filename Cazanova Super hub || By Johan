@@ -13,8 +13,8 @@ print("Anti-AFK ativado!")
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafael25ic-blip/phoenix-cracked/refs/heads/main/Librerya%20Phoenix%20Crack"))()
 
-local window = library:AddWindow("Omega Cazanova || By Johan", {
-    main_color = Color3.fromRGB(0, 0, 255),
+local window = library:AddWindow("🦸🏼‍♂️Super Nova || By Johan🦸🏼‍♂️", {
+    main_color = Color3.fromRGB(255, 215, 0),
     min_size = Vector2.new(650, 870),
     can_resize = true,
 })
@@ -874,7 +874,7 @@ autoEquipToolsFolder:AddSwitch("Fast Tools", function(Value)
 end)
 
 
-local estadisticas = window:AddTab("Stats")
+local estadisticas = window:AddTab("Stats Advanced")
 
 local SelectPlayerName = ""
 
@@ -1108,7 +1108,7 @@ task.spawn(function()
     end
 end)
 
-local Killer = window:AddTab("Kill")
+local Killer = window:AddTab("Farm Kills OP")
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -3361,7 +3361,7 @@ end)
 for _, option in ipairs(timeOptions) do
     timeDropdown:Add(option)
 end
-local teleport = window:AddTab("Teleport")
+local teleport = window:AddTab("TP Areas")
 
 teleport:AddButton("Spawn", function()
     local player = game.Players.LocalPlayer
@@ -3521,7 +3521,7 @@ end)
 
 
 
-local Calculadora = window:AddTab("calculator", Color3.fromRGB(200, 100, 100))
+local Calculadora = window:AddTab("calculador", Color3.fromRGB(200, 100, 100))
 
 local baseStrength = 0
 local resultadoLabelsDamage = {}
@@ -4121,7 +4121,7 @@ pets:AddSwitch("Auto Buy Ultimates", function(bool)
     end
 end)
 
-local farmTab = window:AddTab("Rock")
+local farmTab = window:AddTab("Farming Rocks")
 farmTab:AddLabel("Rock Farming")
  
 local function gettool()
@@ -4499,13 +4499,13 @@ local Credits = window:AddTab("Credits")
 
 Credits:AddLabel("Paid Version By Johan")
 Credits:AddLabel("Script Super Op")
-Credits:AddLabel("")
-Credits:AddLabel("")
-Credits:AddLabel("")
-Credits:AddLabel("")
-Credits:AddLabel("")
-Credits:AddLabel("")
-Credits:AddLabel("")
+Credits:AddLabel("Gracias por comprar este Script")
+Credits:AddLabel("User de roblox: Fresade80")
+Credits:AddLabel("TIKTOK: Johan13098")
+Credits:AddLabel("Discord: Johan041258")
+Credits:AddLabel("Super nova el Mejor paid ")
+Credits:AddLabel("Actualización mas Op este:1/01/2026👹")
+Credits:AddLabel("Diviertete usando el Super nova 🦸‍♂️")
 
 
 
