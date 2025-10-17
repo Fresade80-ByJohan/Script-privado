@@ -7,17 +7,17 @@ local LocalPlayer = Players.LocalPlayer
 local Camera = workspace.CurrentCamera
 
 local whitelist = {
+    [5705258496] = true,   --//Fresade80
     [----------] = true,   --//--
-    [----------] = true,   --//XxchrisDezzxX
     [----------] = true,   --//--
-    [----------] = true,   --//MaykelDezz
     [----------] = true,   --//--
-    [----------] = true,   --//HonnyDezz
-    [----------] = true,   --//HonnyDezz
-    [----------] = true,   --//Honnydezz_11
-    [----------] = true,   --//MathiKingDezz
-    [----------] = true,   --//Arlexuin
-    [----------] = true,   --//2shenanagin2
+    [----------] = true,   --//--
+    [----------] = true,   --//--
+    [----------] = true,   --//--
+    [----------] = true,   --//--
+    [----------] = true,   --//--
+    [----------] = true,   --//--
+    [----------] = true,   --//--
 }
 
 if not whitelist[LocalPlayer.UserId] and not whitelist[LocalPlayer.Name] then
