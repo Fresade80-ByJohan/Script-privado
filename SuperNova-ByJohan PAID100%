@@ -775,7 +775,7 @@ local activeSnacks = {
     ["TOUGH Bar"] = false,
     ["ULTRA Shake"] = false,
     ["Energy Bar"] = false,
-    ["Protein Egg"] = false,
+    [""] = false,
     ["Tropical Shake"] = false,
 }
 
@@ -826,29 +826,6 @@ local function startSnackLoop(itemName)
             end
             
             task.wait(0.1)
-        end
-    end)
-end
-
-local function startProteinEggLoop()
-    if snackConnections["Protein Egg"] then
-        task.cancel(snackConnections["Protein Egg"])
-        snackConnections["Protein Egg"] = nil
-    end
-    
-    snackConnections["Protein Egg"] = task.spawn(function()
-        while activeSnacks["Protein Egg"] do
-            local backpack = player.Backpack
-            
-            if backpack and backpack:FindFirstChild("Protein Egg") then
-                equipAndUse("Protein Egg")
-                print("Protein Egg usado! Esperando 30 minutos...")
-                task.wait(1800)
-            else
-                activeSnacks["Protein Egg"] = false
-                print("No more Protein Egg available!")
-                break
-            end
         end
     end)
 end
