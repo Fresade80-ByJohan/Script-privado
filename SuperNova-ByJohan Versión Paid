@@ -3651,7 +3651,7 @@ end)
 
 
 
-local Calculadora = window:AddTab("Calculadora DMG/DR", Color3.fromRGB(200, 100, 100))
+local Calculadora = window:AddTab("Calculadora DMG", Color3.fromRGB(200, 100, 100))
 
 local baseStrength = 0
 local resultadoLabelsDamage = {}
