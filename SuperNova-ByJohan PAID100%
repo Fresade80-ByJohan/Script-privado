@@ -47,7 +47,6 @@ local REP_DELAY = 0.01
 local ROCK_INTERVAL = 5
 local MAX_PING = 450   -- si pasa esto, pausa
 local MIN_PING = 250   -- si baja de esto, reanuda
-local LOCK POSITION 
 
 -- Variables internas
 local HumanoidRootPart
@@ -324,8 +323,7 @@ end)
         end)
     end
 end)
-
-local MSCCFolder:AddSwitch("Lock Position", function(Value)
+AutoFarm:AddSwitch("Lock Position", function(Value)
     if Value then
         local currentPos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
         getgenv().posLock = game:GetService("RunService").Heartbeat:Connect(function()
