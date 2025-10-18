@@ -766,6 +766,153 @@ end)
 
 
 
+--Auto Snack Folder
+local autoSnackFolder = mainTab:AddFolder("  Auto Snacks")
+
+local activeSnacks = {
+    ["Protein Shake"] = false,
+    ["Energy Shake"] = false,
+    ["TOUGH Bar"] = false,
+    ["ULTRA Shake"] = false,
+    ["Energy Bar"] = false,
+    ["Protein Egg"] = false,
+    ["Tropical Shake"] = false,
+}
+
+local snackConnections = {}
+
+local function equipAndUse(itemName)
+    local character = player.Character
+    local backpack = player.Backpack
+    
+    if not character or not backpack then return end
+    
+    local tool = backpack:FindFirstChild(itemName)
+    
+    if tool then
+        tool.Parent = character
+        task.wait(0.1)
+        
+        local equippedTool = character:FindFirstChild(itemName)
+        if equippedTool then
+            equippedTool:Activate()
+            
+            local viewportSize = workspace.CurrentCamera.ViewportSize
+            local x, y = viewportSize.X / 2, viewportSize.Y / 2
+            VirtualInputManager:SendMouseButtonEvent(x, y, 0, true, game, 1)
+            task.wait(0.01)
+            VirtualInputManager:SendMouseButtonEvent(x, y, 0, false, game, 1)
+        end
+    end
+end
+
+local function startSnackLoop(itemName)
+    if snackConnections[itemName] then
+        task.cancel(snackConnections[itemName])
+        snackConnections[itemName] = nil
+    end
+    
+    snackConnections[itemName] = task.spawn(function()
+        while activeSnacks[itemName] do
+            local backpack = player.Backpack
+            
+            if backpack and backpack:FindFirstChild(itemName) then
+                equipAndUse(itemName)
+                task.wait(0.5)
+            else
+                activeSnacks[itemName] = false
+                print("No more " .. itemName .. " available!")
+                break
+            end
+            
+            task.wait(0.1)
+        end
+    end)
+end
+
+local function startProteinEggLoop()
+    if snackConnections["Protein Egg"] then
+        task.cancel(snackConnections["Protein Egg"])
+        snackConnections["Protein Egg"] = nil
+    end
+    
+    snackConnections["Protein Egg"] = task.spawn(function()
+        while activeSnacks["Protein Egg"] do
+            local backpack = player.Backpack
+            
+            if backpack and backpack:FindFirstChild("Protein Egg") then
+                equipAndUse("Protein Egg")
+                print("Protein Egg usado! Esperando 30 minutos...")
+                task.wait(1800)
+            else
+                activeSnacks["Protein Egg"] = false
+                print("No more Protein Egg available!")
+                break
+            end
+        end
+    end)
+end
+
+local function startTropicalShakeLoop()
+    if snackConnections["Tropical Shake"] then
+        task.cancel(snackConnections["Tropical Shake"])
+        snackConnections["Tropical Shake"] = nil
+    end
+    
+    snackConnections["Tropical Shake"] = task.spawn(function()
+        while activeSnacks["Tropical Shake"] do
+            local backpack = player.Backpack
+            
+            if backpack and backpack:FindFirstChild("Tropical Shake") then
+                equipAndUse("Tropical Shake")
+                print("Tropical Shake usado! Esperando 15 minutos...")
+                task.wait(900)
+            else
+                activeSnacks["Tropical Shake"] = false
+                print("No more Tropical Shake available!")
+                break
+            end
+        end
+    end)
+end
+
+local function stopSnackLoop(itemName)
+    if snackConnections[itemName] then
+        task.cancel(snackConnections[itemName])
+        snackConnections[itemName] = nil
+    end
+end
+
+for _, snackName in pairs({"Protein Shake", "Energy Shake", "Tough Bar", "Ultra Shake", "Energy Bar"}) do
+    local displayName = snackName == "Tough Bar" and "TOUGH Bar" or (snackName == "Ultra Shake" and "ULTRA Shake" or snackName)
+    
+    autoSnackFolder:AddSwitch(snackName, function(state)
+        activeSnacks[displayName] = state
+        if state then
+            startSnackLoop(displayName)
+        else
+            stopSnackLoop(displayName)
+        end
+    end)
+end
+
+autoSnackFolder:AddSwitch("Protein Egg 30 Minuts", function(state)
+    activeSnacks["Protein Egg"] = state
+    if state then
+        startProteinEggLoop()
+    else
+        stopSnackLoop("Protein Egg")
+    end
+end)
+
+autoSnackFolder:AddSwitch("Tropical Shake 15 Minuts", function(state)
+    activeSnacks["Tropical Shake"] = state
+    if state then
+        startTropicalShakeLoop()
+    else
+        stopSnackLoop("Tropical Shake")
+    end
+end)
 
 local autoEquipToolsFolder = AutoFarm:AddFolder("Auto Tools")
 
