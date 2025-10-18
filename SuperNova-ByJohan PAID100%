@@ -325,7 +325,7 @@ end)
     end
 end)
 
-MSCCFolder:AddSwitch("Lock Position", function(Value)
+local MSCCFolder:AddSwitch("Lock Position", function(Value)
     if Value then
         local currentPos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
         getgenv().posLock = game:GetService("RunService").Heartbeat:Connect(function()
