@@ -47,6 +47,7 @@ local REP_DELAY = 0.01
 local ROCK_INTERVAL = 5
 local MAX_PING = 450   -- si pasa esto, pausa
 local MIN_PING = 250   -- si baja de esto, reanuda
+local LOCK POSITION 
 
 -- Variables internas
 local HumanoidRootPart
@@ -323,6 +324,22 @@ end)
         end)
     end
 end)
+
+MSCCFolder:AddSwitch("Lock Position", function(Value)
+    if Value then
+        local currentPos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        getgenv().posLock = game:GetService("RunService").Heartbeat:Connect(function()
+            if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = currentPos
+            end
+        end)
+    else
+        if getgenv().posLock then
+            getgenv().posLock:Disconnect()
+            getgenv().posLock = nil
+        end
+    end
+end)
 -- ✅ Optimización visual
 AutoFarm:AddSwitch("Hide All Frames", function(bool)
     local rSto = game:GetService("ReplicatedStorage")
@@ -365,22 +382,6 @@ AutoFarm:AddButton("Anti Lag", function()
             v.Enabled = false
         end
     end
-
-MSCCFolder:AddSwitch("Lock Position", function(Value)
-    if Value then
-        local currentPos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-        getgenv().posLock = game:GetService("RunService").Heartbeat:Connect(function()
-            if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = currentPos
-            end
-        end)
-    else
-        if getgenv().posLock then
-            getgenv().posLock:Disconnect()
-            getgenv().posLock = nil
-        end
-    end
-end)
 
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "anti lag activado",
