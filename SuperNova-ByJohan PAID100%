@@ -26,7 +26,7 @@ local AutoFarm = window:AddTab("Farm")
 getgenv()._AutoRepFarmEnabled = false  
 
 -- Switch en la librería
-AutoFarm:AddSwitch("Strength Op (Use it if your minimum ping is 250 ms)", function(state)
+AutoFarm:AddSwitch("Strength Op (Usar si eres de Celular )", function(state)
     getgenv()._AutoRepFarmEnabled = state
     warn("[Auto Rep Farm] Estado cambiado a:", state and "ON" or "OFF")
 end)
@@ -153,7 +153,7 @@ end)
 getgenv()._AutoRepFarmEnabled = false  
 
 -- Switch en la librería
-AutoFarm:AddSwitch("Strength Op (Use it if your minimum ping is less than 150 ms)", function(state)
+AutoFarm:AddSwitch("Strength Super Op (Usar si estas en ugphone o Pc)", function(state)
     getgenv()._AutoRepFarmEnabled = state
     warn("[Auto Rep Farm] Estado cambiado a:", state and "ON" or "OFF")
 end)
@@ -984,11 +984,11 @@ end)
 estadisticas:AddLabel("————————————————————————————")
 estadisticas:AddLabel("stats advanced:").TextSize = 24
 
-local enemyHealthLabel = estadisticas:AddLabel("Enemy Health: N/A")
+local enemyHealthLabel = estadisticas:AddLabel("Enemy Health: 30t")
 enemyHealthLabel.TextSize = 20
 enemyHealthLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 
-local playerDamageLabel = estadisticas:AddLabel("Your Damage: N/A")
+local playerDamageLabel = estadisticas:AddLabel("YourOptimization")
 playerDamageLabel.TextSize = 20
 playerDamageLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 
@@ -3292,7 +3292,7 @@ Killer:AddButton("Size NaN", function()
     local args = {"changeSize", 0/0}
     game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("changeSpeedSizeRemote"):InvokeServer(unpack(args))
 end)
-Killer:AddButton("activate dead hit", function()
+Killer:AddButton("Auto pegar muerto", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/DsQKiTnC"))()
 end)
 
