@@ -903,7 +903,7 @@ autoEquipToolsFolder:AddSwitch("Fast Tools", function(Value)
 end)
 
 
-local autoSnackFolder = Auto Farm:AddFolder("Auto Snacks")
+local autoSnackFolder = AutoFarm:AddFolder("Auto Snacks")
 
 local activeSnacks = {
     ["Protein Shake"] = false,
