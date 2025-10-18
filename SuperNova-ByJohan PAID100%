@@ -365,7 +365,23 @@ AutoFarm:AddButton("Anti Lag", function()
             v.Enabled = false
         end
     end
- 
+
+MSCCFolder:AddSwitch("Lock Position", function(Value)
+    if Value then
+        local currentPos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        getgenv().posLock = game:GetService("RunService").Heartbeat:Connect(function()
+            if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = currentPos
+            end
+        end)
+    else
+        if getgenv().posLock then
+            getgenv().posLock:Disconnect()
+            getgenv().posLock = nil
+        end
+    end
+end)
+
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "anti lag activado",
         Text = "Full optimization applied!",
