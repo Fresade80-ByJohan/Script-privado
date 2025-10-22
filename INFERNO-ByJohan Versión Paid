@@ -4627,14 +4627,14 @@ end)
 
 local Credits = window:AddTab("Credits")
 
-Credits:AddLabel("Paid Versión By Johan")
+Credits:AddLabel("INFERNO PAID V2 || BY Johan
 Credits:AddLabel("Tiktok:Johan13098")
 Credits:AddLabel("Discord:Johan041258")
 Credits:AddLabel("Sigueme en esas cuentas para más actualiciones superOps")
 Credits:AddLabel("Próxima actualización:")
 Credits:AddLabel("Fecha:01/01/2026☠️👹")
 Credits:AddLabel("Comparte a tus amigos el script para que lo compren")
-Credits:AddLabel("Gracias por comprar el script INFERNO")
+Credits:AddLabel("Gracias por comprar el script INFERNO PAID")
 Credits:AddLabel("Diviertete🥰")
 
 
