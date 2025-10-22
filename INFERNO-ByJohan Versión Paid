@@ -13,7 +13,7 @@ print("Anti-AFK ativado!")
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafael25ic-blip/phoenix-cracked/refs/heads/main/Librerya%20Phoenix%20Crack"))()
 
-local window = library:AddWindow("🦸🏼‍♂️SuperNova Hub || By Johan🦸🏼‍♂️", {
+local window = library:AddWindow("👑🔥 INFERNO PAID V2 || By Johan 🔥👑", {
     main_color = Color3.fromRGB(0, 0, 0),
     min_size = Vector2.new(650, 870),
     can_resize = true,
@@ -4634,7 +4634,7 @@ Credits:AddLabel("Sigueme en esas cuentas para más actualiciones superOps")
 Credits:AddLabel("Próxima actualización:")
 Credits:AddLabel("Fecha:01/01/2026☠️👹")
 Credits:AddLabel("Comparte a tus amigos el script para que lo compren")
-Credits:AddLabel("Gracias por comprar el script SuperNova")
+Credits:AddLabel("Gracias por comprar el script INFERNO")
 Credits:AddLabel("Diviertete🥰")
 
 
